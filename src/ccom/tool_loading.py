@@ -4,8 +4,8 @@ import tbxdata
 from loguru import logger
 from typer import Exit
 
-from ccog.tool import Tool
-from ccog.tool_library import ToolLibrary
+from ccom.tool import Tool
+from ccom.tool_library import ToolLibrary
 
 _TOOLDIR_PREFIX = "tooldir"
 

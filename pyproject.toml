@@ -1,5 +1,5 @@
 [project]
-name = "ccog"
+name = "ccom"
 version = "0.1.0"
 authors = [
     { name = "ColtonWright55", email = "wright.2135@osu.edu" }

@@ -4,7 +4,7 @@ from pathlib import Path
 
 import numpy as np
 
-from ccog.forge_action import ForgeAction
+from ccom.forge_action import ForgeAction
 
 
 def actions_to_u(actions: list[ForgeAction], n_phi_disc: int) -> np.ndarray:

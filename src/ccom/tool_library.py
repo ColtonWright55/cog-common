@@ -4,7 +4,7 @@ import numpy as np
 import open3d as o3d
 from loguru import logger
 
-from ccog.tool import Tool
+from ccom.tool import Tool
 
 _SUPPORTED_EXTS = {".stl", ".ply", ".obj"}
 _PROFILE_SAMPLES = 512
