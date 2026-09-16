@@ -1,0 +1,21 @@
+[project]
+name = "ccog"
+version = "0.1.0"
+authors = [
+    { name = "ColtonWright55", email = "wright.2135@osu.edu" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "numpy",
+    "open3d",
+    "scipy",
+    "loguru",
+    "typer",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.6,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.ruff]
+line-length = 120
