@@ -1,17 +1,21 @@
+import os
 from pathlib import Path
 
-import tbxdata
 from loguru import logger
 from typer import Exit
 
 from ccom.tool import Tool
 from ccom.tool_library import ToolLibrary
 
-_TOOLDIR_PREFIX = "tooldir"
+_TOOL_DIR_ENV = "CCOM_TOOL_DIR"
 
 
 def default_tool_dir() -> Path:
-    return tbxdata.get_data_dir(_TOOLDIR_PREFIX)
+    tool_dir = os.environ.get(_TOOL_DIR_ENV)
+    if tool_dir is None:
+        logger.error("No tool directory given; pass --tool-dir or set {}", _TOOL_DIR_ENV)
+        raise Exit(1)
+    return Path(tool_dir)
 
 
 def load_tool(tool_dir: Path, tool_index: int = 0) -> Tool:

@@ -3,12 +3,12 @@ from pathlib import Path
 
 import numpy as np
 import open3d as o3d
-import tbxdata
-from foxglove_schemas_protobuf.SceneUpdate_pb2 import SceneUpdate
 
 
 def decode_scene_update_mesh(data: bytes) -> o3d.geometry.TriangleMesh | None:
     """Decode a foxglove.SceneUpdate message's first triangle list into an open3d mesh."""
+    from foxglove_schemas_protobuf.SceneUpdate_pb2 import SceneUpdate
+
     su = SceneUpdate()
     su.ParseFromString(data)
     if not su.entities or not su.entities[0].triangles:
@@ -30,7 +30,6 @@ def decode_scene_update_mesh(data: bytes) -> o3d.geometry.TriangleMesh | None:
 
 
 def load_triangle_mesh(path: str | Path) -> o3d.geometry.TriangleMesh:
-    path = tbxdata.get_data(str(path))
     mesh = o3d.io.read_triangle_mesh(str(path))
     if not mesh.has_vertices():
         raise FileNotFoundError(f"Failed to load a mesh from {path}")
